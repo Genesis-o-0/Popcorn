@@ -3,14 +3,18 @@ import Home from "./components/Home";
 import Celebs from "./components/Celebs";
 import Movies from "./components/Movies";
 import Blog from "./components/Blog";
-import Navbar from "./components/Navbar";
+import NavbarComp from "./components/Navbar";
 import Pages from "./components/Pages";
 import TvShows from "./components/TvShows";
+import "./index.css";
+import MovieDetails from "./components/MovieDetails";
+import NotFound from "./components/NotFound";
+
 function App() {
   return (
     <div className="App">
       <Router>
-        <Navbar />
+        <NavbarComp />
         <Routes>
           <Route path="/" Component={Home} />
           <Route path="/celebs" Component={Celebs} />
@@ -18,6 +22,8 @@ function App() {
           <Route path="/blog" Component={Blog} />
           <Route path="/pages" Component={Pages} />
           <Route path="/tvshows" Component={TvShows} />
+          <Route path="/movies/:id" Component={MovieDetails} />
+          <Route path="*" Component={NotFound} />
         </Routes>
       </Router>
     </div>
