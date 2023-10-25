@@ -14,7 +14,7 @@ const MovieCard = ({
       <p className="position-absolute z-1 end-0 py-1 px-2 bg-danger text-light">
         {parseFloat(vote_average?.toFixed(1) || "")}
       </p>
-      <div className="card">
+      <div className="card shadow">
         <div className="card-image">
           <Link to={`/movies/${id}`}>
             <img
@@ -30,7 +30,7 @@ const MovieCard = ({
         </div>
         <div className="card-body">
           <p
-            className="card-title text-center fw-bold"
+            className="card-title text-center fw-bold text-black"
             style={{
               width: "100%",
               height: "25px",
