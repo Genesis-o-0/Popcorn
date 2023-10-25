@@ -6,22 +6,33 @@ import LoadingSpinner from "./Spinner";
 import ErrorMessage from "./ErrorMessage";
 import MovieCard from "./MovieCard";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const [selected, setSelected] = useState(null);
   const [isClearable, setIsClearable] = useState(true);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const options = [
     { value: "tv", label: "TV Shows" },
     { value: "movie", label: "Movies" },
     { value: "person", label: "Celebrity" },
   ];
+  const isSearchDisabled = searchQuery.trim() === "";
 
   const handleChange = (e) => {
     if (e) {
       setSelected({ ...e });
     } else {
       setSelected(null);
+    }
+  };
+
+  const getInputValue = (e) => {
+    if (e.target.value.trim() === "") {
+      return;
+    } else {
+      setSearchQuery(e.target.value);
     }
   };
 
@@ -34,13 +45,19 @@ const Home = () => {
         <div className="container py-3">
           <div className="row">
             <div className="col-sm-12 col-md-8 col-lg-10 d-flex mb-3">
-              <button className=" border-0 bg-transparent me-3 fs-4 ">
-                <FontAwesomeIcon icon={faMagnifyingGlass} />
+              <button
+                className=" border-0 bg-transparent me-3 fs-4 "
+                disabled={isSearchDisabled}
+              >
+                <Link to={isSearchDisabled ? "" : `/search/${searchQuery}`}>
+                  <FontAwesomeIcon icon={faMagnifyingGlass} />
+                </Link>
               </button>
               <input
                 placeholder="Find movies TV Shows documentary and more..."
                 type="text"
                 className="form-control border-0 outline-0"
+                onChange={(e) => getInputValue(e)}
               />
             </div>
             <div className="col-12 col-md-4 col-lg-2 d-flex justify-content-end ">

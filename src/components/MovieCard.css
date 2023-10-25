@@ -1,0 +1,21 @@
+.card-container {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+}
+
+.card {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+}
+
+.card-image {
+  flex: 1 !important;
+}
+.card-image img {
+  height: 100%;
+}
+.card-body {
+  flex: 0 !important;
+}

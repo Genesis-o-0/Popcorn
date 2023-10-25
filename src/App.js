@@ -9,6 +9,7 @@ import TvShows from "./components/TvShows";
 import "./index.css";
 import MovieDetails from "./components/MovieDetails";
 import NotFound from "./components/NotFound";
+import SearchResult from "./components/SearchResult";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/pages" Component={Pages} />
           <Route path="/tvshows" Component={TvShows} />
           <Route path="/movies/:id" Component={MovieDetails} />
+          <Route path="/search/:query" Component={SearchResult} />
           <Route path="*" Component={NotFound} />
         </Routes>
       </Router>
